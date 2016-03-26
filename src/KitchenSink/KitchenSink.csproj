@@ -88,8 +88,8 @@
     <Compile Include="HtmlPage.json.cs">
       <DependentUpon>HtmlPage.json</DependentUpon>
     </Compile>
-    <Compile Include="GeoPage.json.cs">
-      <DependentUpon>GeoPage.json</DependentUpon>
+    <Compile Include="MapPage.json.cs">
+      <DependentUpon>MapPage.json</DependentUpon>
     </Compile>
     <Compile Include="MarkdownPage.json.cs">
       <DependentUpon>MarkdownPage.json</DependentUpon>
@@ -169,7 +169,7 @@
     <Content Include="wwwroot\KitchenSink\FileUploadPage.html" />
     <Content Include="wwwroot\KitchenSink\HtmlPage.html" />
     <Content Include="wwwroot\KitchenSink\MasterPage.html" />
-    <Content Include="wwwroot\KitchenSink\GeoPage.html" />
+    <Content Include="wwwroot\KitchenSink\MapPage.html" />
     <Content Include="wwwroot\KitchenSink\MarkdownPage.html" />
     <Content Include="wwwroot\KitchenSink\NestedPartial.html" />
     <Content Include="wwwroot\KitchenSink\PasswordPage.html" />
@@ -267,7 +267,7 @@
     </TypedJSON>
   </ItemGroup>
   <ItemGroup>
-    <TypedJSON Include="GeoPage.json">
+    <TypedJSON Include="MapPage.json">
       <Generator>MsBuild:Compile</Generator>
     </TypedJSON>
   </ItemGroup>
