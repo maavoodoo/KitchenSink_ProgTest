@@ -1,7 +1,15 @@
-using Starcounter;
+using KitchenSink.Module;
 
 namespace KitchenSink {
     partial class TextPage : Partial {
+
+        protected override void OnData()
+        {
+            base.OnData();
+
+            var console = NinjectKernel.Instance.GetModule<IConsoleModule>();
+            console.WriteOutput("some output");
+        }
 
         public string CalculatedNameReaction {
             get {

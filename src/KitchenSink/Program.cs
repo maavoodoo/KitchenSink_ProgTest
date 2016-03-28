@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Linq;
 using Starcounter;
+using KitchenSink.Module;
 
 namespace KitchenSink {
     class Program {
         static void Main() {
+
+            //insert ninject
+            NinjectKernel.Instance.RegisterModules();
+
             Handle.GET("/KitchenSink/master", () => {
                 Session session = Session.Current;
 
