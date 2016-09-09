@@ -9,7 +9,7 @@ namespace KitchenSink.Tests {
 
         public static IWebDriver Create(string browser) {
             DesiredCapabilities capabilities;
-            IWebDriver driver;
+            IWebDriver driver = null;
 
             switch (browser) {
                 case "chrome":
@@ -24,7 +24,18 @@ namespace KitchenSink.Tests {
                     break;
                 case "edge":
                     capabilities = DesiredCapabilities.Edge();
-                    driver = new RemoteWebDriver(RemoteWebDriverUri, capabilities, WebDriverTimeout);
+
+                    int counter = 0;
+
+                    // This is required due to Edge throwing Unable to create new remote session.
+                    // When trying to establish multiple sessions at a time.
+                    while (driver == null || counter > 10) {
+                        try {
+                            driver = new RemoteWebDriver(RemoteWebDriverUri, capabilities, WebDriverTimeout);
+                        } catch (InvalidOperationException) {
+                            System.Threading.Thread.CurrentThread.Join(1000);
+                        }
+                    }
                     break;
                 default:
                     capabilities = DesiredCapabilities.Firefox();

@@ -27,10 +27,10 @@ namespace KitchenSink.Tests
             baseURL = "http://localhost:8080/KitchenSink";
             verificationErrors = new StringBuilder();
 
-            if (browser == "edge")
-            {
-                Assert.Ignore("Edge tests are disabled due to random timeout fails.");
-            }
+            //if (browser == "edge")
+            //{
+            //    Assert.Ignore("Edge tests are disabled due to random timeout fails.");
+            //}
 
             if (browser == "edge" && !IsEdgeAvailable())
             {

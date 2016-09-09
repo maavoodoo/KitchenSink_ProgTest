@@ -12,6 +12,7 @@ namespace KitchenSink.Test {
     [TestFixture("firefox")]
     [TestFixture("chrome")]
     [TestFixture("edge")]
+    [Parallelizable]
     public class ButtonPageTest : BaseTest {
 
         public ButtonPageTest(string browser) : base(browser) { }

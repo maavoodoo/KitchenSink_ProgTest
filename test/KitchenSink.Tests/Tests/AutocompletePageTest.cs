@@ -10,6 +10,7 @@ namespace KitchenSink.Tests.Tests {
     [TestFixture("firefox")]
     [TestFixture("chrome")]
     [TestFixture("edge")]
+    [Parallelizable]
     public class AutocompletePageTest : BaseTest
     {
         private static readonly By PlacesSearchSelector = By.CssSelector("[placeholder='Poland? Sweden?']");

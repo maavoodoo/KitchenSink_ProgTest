@@ -9,6 +9,7 @@ namespace KitchenSink.Tests.Tests {
     [TestFixture("firefox")]
     [TestFixture("chrome")]
     [TestFixture("edge")]
+    [Parallelizable]
     public class RedirectPageTest : BaseTest
     {
         public RedirectPageTest(string browser) : base(browser) {

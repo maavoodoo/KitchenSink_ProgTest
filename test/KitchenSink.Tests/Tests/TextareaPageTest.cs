@@ -10,6 +10,7 @@ namespace KitchenSink.Test
     [TestFixture("firefox")]
     [TestFixture("chrome")]
     [TestFixture("edge")]
+    [Parallelizable]
     public class TextareaPageTest : BaseTest
     {
         public TextareaPageTest(string browser) : base(browser) { }

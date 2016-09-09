@@ -9,6 +9,7 @@ namespace KitchenSink.Test {
     [TestFixture("firefox")]
     [TestFixture("chrome")]
     [TestFixture("edge")]
+    [Parallelizable]
     //[TestFixture("internet explorer")]
     public class TextPageTest : BaseTest
     {
