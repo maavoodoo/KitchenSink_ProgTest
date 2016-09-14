@@ -85,6 +85,7 @@
     <Compile Include="ChartPage.json.cs">
       <DependentUpon>ChartPage.json</DependentUpon>
     </Compile>
+    <Compile Include="PuppetJsProvider.cs" />
     <Compile Include="ValidationPage.json.cs">
       <DependentUpon>ValidationPage.json</DependentUpon>
     </Compile>

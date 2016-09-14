@@ -5,9 +5,7 @@ using Starcounter;
 namespace KitchenSink {
     class Program {
         static void Main() {
-            var app = Application.Current;
-            app.Use(new HtmlFromJsonProvider());
-            app.Use(new PartialToStandaloneHtmlProvider());
+            Application.Current.Use(new PuppetJsProvider());
 
             Handle.GET("/KitchenSink/master", () => {
                 Session session = Session.Current;
