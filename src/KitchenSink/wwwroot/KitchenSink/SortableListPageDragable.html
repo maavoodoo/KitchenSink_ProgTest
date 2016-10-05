@@ -1,0 +1,74 @@
+﻿<link rel="stylesheet" href="/KitchenSink/SortableList.css">
+<link rel="stylesheet" href="/sys/font-awesome-4.6.3/css/font-awesome.min.css">
+<link rel="import" href="/sys/juicy-draggable/juicy-draggable.html" />
+<template>
+    <template is="dom-bind">
+        <p class="lead">Sortable list of people.</p>
+        <div class="table table-striped table-hover">
+            <div class="table-head">
+                    <div class="table-index">#</div>
+                    <div class="table-content">Name</div>
+            </div>
+            <div id="drop" class="table-body drop">
+                <div id="drag">
+                    <template is="dom-repeat" items="{{model.Persons}}">
+                        <juicy-draggable position="fixed" dropselector="#drop div.drop" on-juicy-draggable-stop="itemDropped">
+                        <div class="table-row drag">
+                            <div class="table-index table-row-index">
+                                {{item.Position$}}
+                            </div>
+                            <div class="table-content">
+                                <input type="text" value="{{item.Name$::input}}" />
+                            </div>
+                            <div class="table-button">
+                                <button class="fa fa-thumbs-o-up fa-2x sort-up" 
+                                        value="{{item.MoveUp$::click}}"
+                                        onmousedown="++this.value">
+                                </button>
+                                <button class="fa fa-thumbs-o-down fa-2x sort-down"
+                                        value="{{item.MoveDown$::click}}"
+                                        onmousedown="++this.value">
+                                </button>
+                            </div>
+                            <div style="clear: both" />
+                        </div>
+                        </juicy-draggable>
+                    </template>
+                </div>
+            </div>
+        </div>
+        <div style="clear: both" />
+        <button class="btn btn-sm btn-default"
+            value="{{model.AddPerson$::click}}" onmousedown="++this.value;">Add row</button>
+        <button class="btn btn-sm btn-default" 
+            value="{{model.Save$::click}}" onmousedown="++this.value;">Save changes</button>
+        <button class="btn btn-sm btn-warning"
+            value="{{model.Cancel$::click}}" onmousedown="++this.value;">Cancel changes</button>
+        <button class="btn btn-sm btn-danger" 
+            value="{{model.ResetData$::click}}" onmousedown="++this.value;">Reset Data</button>
+    </template>
+    <script>
+        var template = document.querySelector("#root");
+
+        template.itemDropped = function (event) {
+            if (!event.detail.dropElement) {
+                return;
+            }
+
+            var target = event.currentTarget;
+            var drag = event.detail.dragElement;
+            var drop = event.detail.dropElement;
+
+            if (target.position == "static") {
+                var origin = drag.nextElementSibling;
+
+                drop.appendChild(origin);
+                drag.parentNode.removeChild(drag);
+            } else {
+                drop.appendChild(drag);
+                drag.style.position = "";
+                target.setAttribute("disabled", "disabled");
+            }
+        };
+    </script>
+</template>

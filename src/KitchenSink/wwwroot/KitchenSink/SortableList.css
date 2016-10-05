@@ -1,0 +1,144 @@
+﻿button {
+    margin: 0px 4px 6px 0;
+    padding: 8px 15px 8px 15px;
+    background: #4479BA;
+    color: #FFF;
+    border: 0px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color:#5588c7;
+}
+
+.sort-up,
+.sort-down {
+	color: black;
+	background: transparent;
+	margin: 0;
+	padding: 0;
+}
+
+.sort-up:hover {
+	color: #15e400;
+	background: transparent;
+}
+
+.sort-down:hover {
+	color: #e40000;
+	background: transparent;
+}
+
+/* Style for table with divs */
+.table-row {
+	clear: both;
+}
+
+.table-index,
+.table-content {
+	float: left;
+}
+
+.table-button {
+	float: right;
+}
+
+.table-index {
+	width: 5%;
+}
+
+.table-head {
+  font-weight: bold;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+.table-head {
+  padding: 8px;
+  line-height: 1.846;
+  vertical-align: top;
+}
+
+.table-row {
+  padding: 8px;
+  line-height: 1.846;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+
+.table-body {
+  clear: both;
+  border-top: 1px solid #dddddd;
+}
+
+.table-row-index {
+	margin-top: 3px;
+}
+
+.table-row:nth-of-type(2n+1) {
+	background-color: #f9f9f9;
+}
+
+.table-row:hover {
+  background-color: #f5f5f5;
+}
+
+/* Juicy dragable CSS */
+
+#drag {
+    overflow: visible;
+    padding-left: 420px;
+    min-height: 60px;
+}
+
+.drag,
+.drag-helper {
+    width: 200px;
+    line-height: 50px;
+    float: left;
+    margin: 0px 10px 10px 0px;
+    border: 1px dashed #333333;
+    text-align: center;
+    cursor: move;
+}
+
+#drop {
+    clear: both;
+    border: 1px solid #333333;
+    padding: 0px;
+}
+
+#drop p {
+    border-bottom: 1px solid #333333;
+    padding: 10px;
+    margin: 0px;
+}
+
+#drop div.drop {
+    min-height: 100px;
+    padding: 10px;
+}
+
+#drop .drag {
+    cursor: default;
+}
+
+.drag-helper {
+    display: none;
+}
+
+.drag-helper.dragging {
+    display: block;
+}
+
+.drag-hover {
+    background-color: #eeffc5;
+}
+
+juicy-draggable.fixed .drag {
+    left: 10px;
+}
+
+juicy-draggable.fixed-drop .drag {
+    left: 220px;
+}

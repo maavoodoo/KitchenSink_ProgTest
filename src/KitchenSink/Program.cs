@@ -31,6 +31,51 @@ namespace KitchenSink
                 master.Session = session;
                 return master;
             });
+            /*
+            *    The tasks i have done is:
+            *    1. Add a new page to the existing menu. Call the link and the page "Sortable list". 
+                 2. On the "Sortable list" page, display a list of people names. Create some dummy data for it in your app. 
+                 5. The UP and DOWN buttons should be rendered as "thumbs up" and "thumbs down" icons. This should be implemented using an icon font. 
+                 You might use any icon font that you find suitable EXCEPT Glyphicons (because that one is included in Bootstrap, which makes it too simple).
+                 6. The icon should change the color when you put the mouse cursor over it.
+            *
+                The tasks which i have not been able to finish is:
+                3. Each person on the list has two buttons (UP and DOWN) that do the sorting. Clicking on the buttons changes the order of people in the list.
+                            I was not able to figure out how to make the buttons so that i can use the Handles, maybe i should have used Person as a own .json/.json.cs?
+
+                4. Every time the UP or DOWN button is clicked, the new order needs to be stored in the database. 
+                            This one i would have managed if i just got the above one to work, i instead stayed with the buttons from the invoice demo
+                            so that i could test stuff more easily.
+
+                7. The UP button should be disabled in the first row (both technically and visually). The same for the DOWN button in the last row.
+                
+                8. In addition to pressing on the buttons, it should be possible to change the order by drag'n'drop. 
+                You might use https://github.com/Juicy/juicy-draggable, which is a custom element made by us.
+                            I was not able to configure it so that they objects would still stay in a neat list.
+            *    
+            *    I have included three different HTML docs; SortableListPage.html, SortableListPageDivTable.html and SortableListPageDragable.html
+            *    
+            *    SortableListPage.html is the "standard" one and uses regular html table tags to build the table and uses the bootstrap css.
+            *    
+            *    SortableListPageDivTable.html is a table created with div instead of table tags, it uses my own custom CSS and i made it so to
+            *    replicate how the bootstrap table looked like. This was done due to some stuff not looking right with tables and dom-repeat for some functions
+            *    i tested out.
+            *    
+            *    SortableListDragable.html is my try to use the Juicy-dragable, i was not able to get this to work properly as the objects would not stay in a nice list. 
+            *    
+            *    I got the overall Handle.GET code from breadcrumb GET and then added my own line to select Data so i always 
+            *    work with the same list of people.
+            *    
+            */
+            Handle.GET("/KitchenSink/partial/sortable",
+               () => {
+                   return Db.Scope(() => { return new SortableListPage()
+                   {
+                       Data = Db.SQL<SortableList>("SELECT i FROM SortableList i FETCH ?", 1).First
+                   }; }); });
+            Handle.GET("/KitchenSink/sortable", () => WrapPage<SortableListPage>("/KitchenSink/partial/sortable"));
+
+
 
             Handle.GET("/KitchenSink/json", () => { return new Json(); });
 
